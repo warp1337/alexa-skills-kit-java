@@ -4,8 +4,8 @@ This is an Alexa custom skill that finds meals offered at Bielefeld University's
 
 You can ask the following questions:
 
-1. Your_Wakeup_Work, fragen mensa bielefeld {Day}
-2. Your_Wakeup_Work, fragen mensa bielefeld {Day} {Menue}
+1. Alexa, fragen mensa bielefeld {Day}
+2. Alexa, fragen mensa bielefeld {Day} {Menue}
 
 ## Where {Day} is a list:
 
