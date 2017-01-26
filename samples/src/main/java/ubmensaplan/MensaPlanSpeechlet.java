@@ -139,6 +139,10 @@ public class MensaPlanSpeechlet implements Speechlet {
             return "Florian Lier hat diese App geschrieben. Netter Typ.";
         }
 
+        if ("sonntag".equals(day) || "samstag".equals(day)) {
+            return "Es ist schoen, dass du am Wochenende in die Universitaet willst, aber ich weiss nicht was es zu Essen gibt.";
+        }
+
         try {
             String line;
             URL url = new URL("https://raw.githubusercontent.com/warp1337/ubmensa2json/master/ub_mensa.json");
@@ -200,6 +204,10 @@ public class MensaPlanSpeechlet implements Speechlet {
 
         if ("entwickler".equals(day)) {
             speechText = plan;
+        }
+
+        if ("sonntag".equals(day) || "samstag".equals(day)) {
+            speechText = "Es ist schoen, dass du am Wochenende in die Universitaet willst, aber ich weiss nicht was es zu Essen gibt.";
         }
 
         SimpleCard card = new SimpleCard();
