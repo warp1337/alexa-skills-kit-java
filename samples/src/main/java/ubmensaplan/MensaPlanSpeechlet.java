@@ -144,7 +144,7 @@ public class MensaPlanSpeechlet implements Speechlet {
         }
 
         if ("aktion".equals(kind)) {
-            kind = "aktions theke"
+            kind = "aktions theke";
         }
 
         try {
