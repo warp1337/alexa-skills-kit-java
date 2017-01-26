@@ -1,8 +1,2 @@
 GetNewMensaIntent mensa bielefeld {Day}
 GetNewMensaIntent mensa bielefeld {Day} {Menue}
-GetNewMensaIntent mensa plan bielefeld {Day}
-GetNewMensaIntent mensa plan bielefeld {Day} {Menue}
-GetNewMensaIntent mensa essen bielefeld {Day}
-GetNewMensaIntent mensa essen bielefeld {Day} {Menue}
-GetNewMensaIntent was gibt es {Day} in der mensa bielefeld
-GetNewMensaIntent was gibt es {Day} in der mensa bielefeld {Menue}
