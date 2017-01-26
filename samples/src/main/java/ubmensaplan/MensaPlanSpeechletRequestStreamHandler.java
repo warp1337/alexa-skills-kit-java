@@ -26,10 +26,6 @@ public final class MensaPlanSpeechletRequestStreamHandler extends SpeechletReque
     private static final Set<String> supportedApplicationIds;
 
     static {
-        /*
-         * This Id can be found on https://developer.amazon.com/edw/home.html#/ "Edit" the relevant
-         * Alexa Skill and put the relevant Application Ids in this Set.
-         */
         supportedApplicationIds = new HashSet<String>();
         supportedApplicationIds.add("amzn1.ask.skill.0f76b4e3-da87-4f05-9ee3-1003fb79f86b");
     }

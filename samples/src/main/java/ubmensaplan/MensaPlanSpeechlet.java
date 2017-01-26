@@ -51,12 +51,12 @@ import org.apache.commons.io.IOUtils;
 
 
 /**
- * TODO
+ * This class implements an Alexa Skill that finds available meals based on the
+ * desired day and kind of food (vital, vegetarian, meal of the day ...)
  */
 public class MensaPlanSpeechlet implements Speechlet {
 
     private static final Logger log = LoggerFactory.getLogger(MensaPlanSpeechlet.class);
-
     private CalendarUtils cal = new CalendarUtils();
 
     @Override
@@ -120,10 +120,13 @@ public class MensaPlanSpeechlet implements Speechlet {
     }
 
     /**
-     * TODO
-     *
+     * Generate a String response based on the current slots.
+     * The mensa plan is provided as JSON on the web.
+     * @return String
+     * @param day The desired day of the week
+     * @param kind The desired menue, e.g., vital, vegetarian, etc.
      * @throws IOException
-     * @see <a href = "https://raw.githubusercontent.com/warp1337/ubmensa2json/master/ub_mensa.json">UB Mensa Plan</a>
+     * @see "https://raw.githubusercontent.com/warp1337/ubmensa2json/master/ub_mensa.json"
      */
     private String getMensaPlan(String day, String kind) {
 
@@ -131,6 +134,10 @@ public class MensaPlanSpeechlet implements Speechlet {
         InputStreamReader inputStream = null;
         BufferedReader bufferedReader = null;
         StringBuilder builder = new StringBuilder();
+
+        if ("entwickler".equals(day)) {
+            return "Florian Lier hat diese App geschrieben. Netter Typ.";
+        }
 
         try {
             String line;
@@ -174,7 +181,11 @@ public class MensaPlanSpeechlet implements Speechlet {
     }
 
     /**
-     * TODO
+     * Generate a response based on the current slots.
+     * The mensa plan is provided as JSON on the web.
+     * @return SpeechletResponse
+     * @param day The desired day of the week
+     * @param menue The desired menue, e.g., vital, vegetarian, etc.
      */
     private SpeechletResponse getNewMensaResponse(String day, String menue) {
 
@@ -187,6 +198,10 @@ public class MensaPlanSpeechlet implements Speechlet {
 
         String speechText =  day + ", " + menue + ": " + plan;
 
+        if ("entwickler".equals(day)) {
+            speechText = plan;
+        }
+
         SimpleCard card = new SimpleCard();
         card.setTitle("Bielefeld Mensa Plan");
         card.setContent(speechText);
@@ -198,7 +213,8 @@ public class MensaPlanSpeechlet implements Speechlet {
     }
 
     /**
-     * Returns a response for the help intent.
+     * Generate a static help response
+     * @return SpeechletResponse
      */
     private SpeechletResponse getHelpResponse() {
         String speechText = "Du kannst fragen welche Menues es heute in der Mensa der Universitaet Bielefeld gibt. Frage zum Beispiel: Mensa Bielefeld Heute Tagesmenue";
@@ -212,14 +228,16 @@ public class MensaPlanSpeechlet implements Speechlet {
         return SpeechletResponse.newAskResponse(speech, reprompt);
     }
 
+    /**
+     * Generate a static welcome response
+     * @return SpeechletResponse
+     */
     private SpeechletResponse getNewWelcomeResponse() {
         String speechText = "Hey! Ich kann Dir sagen was es heute in der Mensa in Bielefeld zu Essen gibt.";
 
-        // Create the plain text output.
         PlainTextOutputSpeech speech = new PlainTextOutputSpeech();
         speech.setText(speechText);
 
-        // Create reprompt
         Reprompt reprompt = new Reprompt();
         reprompt.setOutputSpeech(speech);
 

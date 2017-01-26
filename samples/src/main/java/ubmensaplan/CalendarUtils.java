@@ -20,6 +20,10 @@ package ubmensaplan;
 import java.util.*;
 import java.util.Calendar;
 
+
+/**
+ * This class is just a helper class to find the day of the week (in Germany)
+ */
 public class CalendarUtils {
 
     Locale locale = Locale.GERMANY;
