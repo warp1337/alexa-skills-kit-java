@@ -215,7 +215,7 @@ public class MensaPlanSpeechlet implements Speechlet {
         }
 
         if (" ".equals(plan)) {
-            speechText = "Entschulde, ich konnte keine Information zu " + menue + " finden.";
+            speechText = "Entschuldige, ich konnte keine Information zu " + menue + " finden.";
         }
 
         SimpleCard card = new SimpleCard();
