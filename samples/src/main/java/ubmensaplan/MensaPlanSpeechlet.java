@@ -136,7 +136,7 @@ public class MensaPlanSpeechlet implements Speechlet {
         StringBuilder builder = new StringBuilder();
 
         if ("entwickler".equals(day)) {
-            return "Florian Lier hat diese App geschrieben. Netter Typ.";
+            return "Florian Lier hat diese Applikation geschrieben. Netter Typ. Ehrlich.";
         }
 
         if ("sonntag".equals(day) || "samstag".equals(day)) {
