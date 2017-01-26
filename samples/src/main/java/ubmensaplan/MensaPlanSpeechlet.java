@@ -219,7 +219,7 @@ public class MensaPlanSpeechlet implements Speechlet {
         }
 
         if ("gibt es nicht".equals(day)) {
-            speechText = "Doch. Bielefeld gibt es, das sagt hiermit das Internet. Quod Erat Demonstrandum";
+            speechText = "Doch. Bielefeld gibt es, das sagt hier mit das Internet. Quod. Erat. Demonstrandum!";
         }
 
         if (" ".equals(plan)) {
