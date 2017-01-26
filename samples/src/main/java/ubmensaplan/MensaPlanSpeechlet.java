@@ -139,8 +139,12 @@ public class MensaPlanSpeechlet implements Speechlet {
             return "Florian Lier hat diese Applikation geschrieben. Netter Typ. Ehrlich.";
         }
 
-        if ("sonntag".equals(day) || "samstag".equals(day)) {
-            return "Es ist Wochenende!";
+        if ("sonntag".equals(day) || "samstag".equals(day) || "gibt es nicht".equals(day)) {
+            return "Easter eggs!";
+        }
+
+        if ("aktion".equals(kind)) {
+            kind = "aktions theke"
         }
 
         try {
@@ -211,7 +215,11 @@ public class MensaPlanSpeechlet implements Speechlet {
         }
 
         if ("sonntag".equals(day)) {
-            speechText = "Am Sonntag musst du schon selber kochen!";
+            speechText = "Am Sonntag musst du schon selber kochen! Oder, fahr zu deinen Eltern, die haben immer etwas da.";
+        }
+
+        if ("gibt es nicht".equals(day)) {
+            speechText = "Doch. Bielefeld gibt es, das sagt hiermit das Internet. Quod Erat Demonstrandum";
         }
 
         if (" ".equals(plan)) {
