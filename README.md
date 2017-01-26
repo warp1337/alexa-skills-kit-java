@@ -27,7 +27,7 @@ You can ask the following questions:
 * pasta
 * salatbuffet
 * beilagenbuffet
-* aktions theke
+* aktion
 
 ## Special cases:
 
