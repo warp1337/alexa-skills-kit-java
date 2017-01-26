@@ -130,7 +130,7 @@ public class MensaPlanSpeechlet implements Speechlet {
      */
     private String getMensaPlan(String day, String kind) {
 
-        String answer = "";
+        String answer = " ";
         InputStreamReader inputStream = null;
         BufferedReader bufferedReader = null;
         StringBuilder builder = new StringBuilder();
@@ -140,7 +140,7 @@ public class MensaPlanSpeechlet implements Speechlet {
         }
 
         if ("sonntag".equals(day) || "samstag".equals(day)) {
-            return "Es ist schoen, dass du am Wochenende in die Universitaet willst, aber ich weiss nicht was es zu Essen gibt.";
+            return "Es ist Wochenende!";
         }
 
         try {
@@ -206,8 +206,16 @@ public class MensaPlanSpeechlet implements Speechlet {
             speechText = plan;
         }
 
-        if ("sonntag".equals(day) || "samstag".equals(day)) {
+        if ("samstag".equals(day)) {
             speechText = "Es ist schoen, dass du am Wochenende in die Universitaet willst, aber ich weiss nicht was es zu Essen gibt.";
+        }
+
+        if ("sonntag".equals(day)) {
+            speechText = "Am Sonntag musst du schon selber kochen!";
+        }
+
+        if (" ".equals(plan)) {
+            speechText = "Entschulde, ich konnte keine Information zu " + menue + " finden.";
         }
 
         SimpleCard card = new SimpleCard();

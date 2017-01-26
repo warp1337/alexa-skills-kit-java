@@ -4,14 +4,8 @@ This is an Alexa custom skill that finds meals offered at Bielefeld University's
 
 You can ask the following questions:
 
-1. mensa bielefeld {Day}
-2. mensa bielefeld {Day} {Menue}
-3. mensa plan bielefeld {Day}
-4. mensa plan bielefeld {Day} {Menue}
-5. mensa essen bielefeld {Day}
-6. mensa essen bielefeld {Day} {Menue}
-7. was gibt es {Day} in der mensa bielefeld
-8. was gibt es {Day} in der mensa bielefeld {Menue}
+1. Alexa, fragen mensa bielefeld {Day}
+2. Alexa, fragen mensa bielefeld {Day} {Menue}
 
 ## Where {Day} is a list:
 
