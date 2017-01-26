@@ -15,12 +15,9 @@ is to configure the Alexa skill to use Lambda.
 3. Skip the blueprint
 4. Name the Lambda Function "Space-Geek-Example-Skill".
 5. Select the runtime as Java 8
-6. Go to the the root directory containing pom.xml, and run 'mvn assembly:assembly -DdescriptorId=jar-with-dependencies package'.
-This will generate a zip file named "alexa-skills-kit-samples-1.0-jar-with-dependencies.jar" in the target directory.
-7. Select Code entry type as "Upload a .ZIP file" and then upload the "alexa-skills-kit-samples-1.0-jar-with-dependencies.jar"
-file from the build directory to Lambda
-8. Set the Handler as spacegeek.SpaceGeekSpeechletRequestStreamHandler (this refers to the Lambda RequestStreamHandler
-file in the zip).
+6. Go to the the root directory containing pom.xml, and run 'mvn assembly:assembly -DdescriptorId=jar-with-dependencies package'. This will generate a zip file named "alexa-skills-kit-samples-1.0-jar-with-dependencies.jar" in the target directory.
+7. Select Code entry type as "Upload a .ZIP file" and then upload the "alexa-skills-kit-samples-1.0-jar-with-dependencies.jar" file from the build directory to Lambda
+8. Set the Handler as spacegeek.SpaceGeekSpeechletRequestStreamHandler (this refers to the Lambda RequestStreamHandler file in the zip).
 9. Create a basic execution role and click create.
 10. Leave the Advanced settings as the defaults.
 11. Click "Next" and review the settings then click "Create Function"
@@ -30,17 +27,13 @@ file in the zip).
 
 ### Alexa Skill Setup
 1. Go to the [Alexa Console](https://developer.amazon.com/edw/home.html) and click Add a New Skill.
-2. Set "SpaceGeek" as the skill name and "space geek" as the invocation name, this is what is used to activate your skill.
-For example you would say: "Alexa, ask Space Geek for a space fact."
+2. Set "SpaceGeek" as the skill name and "space geek" as the invocation name, this is what is used to activate your skill. For example you would say: "Alexa, ask Space Geek for a space fact."
 3. Select the Lambda ARN for the skill Endpoint and paste the ARN copied from above. Click Next.
 4. Copy the Intent Schema from the included IntentSchema.json.
 5. Copy the Sample Utterances from the included SampleUtterances.txt. Click Next.
-6. Go back to the skill Information tab and copy the appId. Paste the appId into the SpaceGeekSpeechletRequestStreamHandler.java
-file for the variable supportedApplicationIds,
-   then update the lambda source zip file with this change and upload to lambda again, this step makes sure the lambda function
-   only serves request from authorized source.
-7. You are now able to start testing your sample skill! You should be able to go to the [Echo webpage](http://echo.amazon.com/#skills)
-and see your skill enabled.
+6. Go back to the skill Information tab and copy the appId. Paste the appId into the SpaceGeekSpeechletRequestStreamHandler.java file for the variable supportedApplicationIds,
+   then update the lambda source zip file with this change and upload to lambda again, this step makes sure the lambda function only serves request from authorized source.
+7. You are now able to start testing your sample skill! You should be able to go to the [Echo webpage](http://echo.amazon.com/#skills) and see your skill enabled.
 8. In order to test it, try to say some of the Sample Utterances from the Examples section below.
 9. Your skill is now saved and once you are finished testing you can continue to publish your skill.
 

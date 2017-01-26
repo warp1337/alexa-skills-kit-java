@@ -1,0 +1,26 @@
+{
+  "intents": [
+    {
+      "intent": "GetNewMensaIntent",
+      "slots": [
+        {
+          "name": "Menue",
+          "type": "LIST_OF_MENUES"
+        },
+        {
+          "name": "Day",
+          "type": "LIST_OF_DAYS"
+        }
+      ]
+    },
+    {
+      "intent": "AMAZON.HelpIntent"
+    },
+    {
+      "intent": "AMAZON.StopIntent"
+    },
+    {
+      "intent": "AMAZON.CancelIntent"
+    }
+  ]
+}
