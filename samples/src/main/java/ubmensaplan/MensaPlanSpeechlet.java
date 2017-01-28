@@ -147,6 +147,14 @@ public class MensaPlanSpeechlet implements Speechlet {
             kind = "aktions theke";
         }
 
+        if ("vegetarisches".equals(kind)) {
+            kind = "vegetarisch";
+        }
+
+        if ("vital menue".equals(kind)) {
+            kind = "vital";
+        }
+
         try {
             String line;
             URL url = new URL("https://raw.githubusercontent.com/warp1337/ubmensa2json/master/ub_mensa.json");
