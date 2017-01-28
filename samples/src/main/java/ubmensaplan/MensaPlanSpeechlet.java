@@ -59,6 +59,27 @@ public class MensaPlanSpeechlet implements Speechlet {
     private static final Logger log = LoggerFactory.getLogger(MensaPlanSpeechlet.class);
     private CalendarUtils cal = new CalendarUtils();
 
+    private static final String[] SUNDAYS = new String[] {
+            "Am Sonntag musst du schon selber kochen! Oder, fahr zu deinen Eltern, die haben immer etwas da.",
+            "Es ist Sonntag, was willst du da in der Mensa? Die hat geschlossen.",
+            "Sonntags ist die Mensa leider geschlossen.",
+            "Du kannst in die Bibliothek, oder einen Spaziergang um die Uni machen, aber die Mensa ist geschlossen",
+            "Falls du gestern feiern warst, es ist bereits Sonntag. Die Mensa ist geschlossen",
+            "Schliess mal die Augen. Was siehst du jetzt? Die Mensa hat Sonntags geschlossen.",
+            "Entweder studierst du viel zu viel, oder viel zu wenig. Die Mensa ist Sonntags geschlossen."
+    };
+
+
+    private static final String[] SATURDAYS = new String[] {
+            "Am Samstag musst du schon selber kochen! Oder, fahr zu deinen Eltern, die haben immer etwas da.",
+            "Es ist Samstag, was willst du da in der Mensa? Die hat geschlossen.",
+            "Samstags ist die Mensa leider geschlossen.",
+            "Du kannst in die Bibliothek, oder einen Spaziergang um die Uni machen, aber die Mensa ist geschlossen",
+            "Falls du gestern feiern warst, es ist bereits Samstag. Die Mensa ist geschlossen",
+            "Schliess mal die Augen. Was siehst du jetzt? Die Mensa hat Samstags geschlossen.",
+            "Was ist an Samstagen? Richtig! Die Mensa ist geschlossen."
+    };
+
     @Override
     public void onSessionStarted(final SessionStartedRequest request, final Session session) throws SpeechletException {
         log.info("onSessionStarted requestId={}, sessionId={}", request.getRequestId(), session.getSessionId());
@@ -136,7 +157,7 @@ public class MensaPlanSpeechlet implements Speechlet {
         StringBuilder builder = new StringBuilder();
 
         if ("entwickler".equals(day)) {
-            return "Florian Lier hat diese Applikation geschrieben. Netter Typ. Ehrlich.";
+            return "Florian Lier. Er hat diese Applikation geschrieben. Netter Typ. Ehrlich.";
         }
 
         if ("sonntag".equals(day) || "samstag".equals(day) || "gibt es nicht".equals(day)) {
@@ -219,11 +240,13 @@ public class MensaPlanSpeechlet implements Speechlet {
         }
 
         if ("samstag".equals(day)) {
-            speechText = "Es ist schoen, dass du am Wochenende in die Universitaet willst, aber ich weiss nicht was es zu Essen gibt.";
+            int satIndex = (int) Math.floor(Math.random() * SATURDAYS.length);
+            speechText = SATURDAYS[satIndex];
         }
 
         if ("sonntag".equals(day)) {
-            speechText = "Am Sonntag musst du schon selber kochen! Oder, fahr zu deinen Eltern, die haben immer etwas da.";
+            int sunIndex = (int) Math.floor(Math.random() * SUNDAYS.length);
+            speechText = SUNDAYS[sunIndex];
         }
 
         if ("gibt es nicht".equals(day)) {
