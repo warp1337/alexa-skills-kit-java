@@ -6,10 +6,10 @@ You can ask the following questions:
 
 * Alexa, fragen mensa bielefeld {Day}
 * Alexa, fragen mensa bielefeld {Day} {Menue}
-* Alexa, fragen  bielefeld was gibt es {Day}
-* Alexa, fragen  bielefeld was gibt es {Day} {Menue}
-* Alexa, fragen  bielefeld was gibt es {Day} als {Menue}
-* Alexa, fragen  bielefeld was gibt es {Day} als {Menue} menue
+* Alexa, fragen mensa bielefeld was gibt es {Day}
+* Alexa, fragen mensa bielefeld was gibt es {Day} {Menue}
+* Alexa, fragen mensa bielefeld was gibt es {Day} als {Menue}
+* Alexa, fragen mensa bielefeld was gibt es {Day} als {Menue} menue
 
 ## Where {Day} is a list:
 
