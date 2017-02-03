@@ -1,0 +1,22 @@
+{
+  "intents": [
+    {
+      "intent": "GetNewNaoIntent",
+      "slots": [
+        {
+          "name": "cmd",
+          "type": "LIST_OF_CMD"
+        }
+      ]
+    },
+    {
+      "intent": "AMAZON.HelpIntent"
+    },
+    {
+      "intent": "AMAZON.StopIntent"
+    },
+    {
+      "intent": "AMAZON.CancelIntent"
+    }
+  ]
+}
