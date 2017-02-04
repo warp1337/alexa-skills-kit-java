@@ -234,7 +234,7 @@ public class NaoSpeechlet implements Speechlet {
      * @return SpeechletResponse
      */
     private SpeechletResponse getNewWelcomeResponse() {
-        String speechText = "Hey!";
+        String speechText = "Ok NAO!";
 
         PlainTextOutputSpeech speech = new PlainTextOutputSpeech();
         speech.setText(speechText);
