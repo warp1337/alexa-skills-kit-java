@@ -49,6 +49,8 @@ import java.util.HashMap;
 
 import org.apache.commons.io.IOUtils;
 
+import naoremote.ZeroClient;
+
 
 /**
  * This class implements an Alexa Skill that finds available meals based on the
@@ -57,6 +59,7 @@ import org.apache.commons.io.IOUtils;
 public class NaoSpeechlet implements Speechlet {
 
     private static final Logger log = LoggerFactory.getLogger(NaoSpeechlet.class);
+    private ZeroClient zc = new ZeroClient();
 
     @Override
     public void onSessionStarted(final SessionStartedRequest request, final Session session) throws SpeechletException {
@@ -197,6 +200,8 @@ public class NaoSpeechlet implements Speechlet {
     private SpeechletResponse getNewNaoResponse(String cmd) {
 
         String speechText = cmd;
+
+        speechText = zc.ZSend(cmd);
 
         SimpleCard card = new SimpleCard();
         card.setTitle("Nao");
