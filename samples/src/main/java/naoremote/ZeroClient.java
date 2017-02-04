@@ -14,11 +14,8 @@ public class ZeroClient {
     }
 
     public String ZSend(String input) {
-        //try {
         this.socket.send(input.getBytes(ZMQ.CHARSET), 0);
-        //} catch (Exception e) {}
         byte[] reply = socket.recv(0);
-        // String foo = input;
         return new String(reply, ZMQ.CHARSET);
     }
 
