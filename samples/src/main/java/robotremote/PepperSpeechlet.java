@@ -142,21 +142,34 @@ public class PepperSpeechlet implements Speechlet {
         String speechTextAction = action;
 
         if ("pepper".equals(speechTextCmd)) {
-            switch (speechTextCmd) {
-            case "befindet": speechText = speechTextCmd+"befindet sich im Wohnzimmer";
-                     break;
-            case "personen": speechText = "Es sind vier personen anwesend";
-                     break;
-            case "beschäftigt": speechText = "Ja, netflix und chill";
-                     break;
-            case "hole": speechText = "Ich versuche"+speechTextCmd+"zu holen";
-                     break;
-            default: speechText = "Es tut mir sehr leid, ich kann keinen Roboter erreichen";
-                     break;
+            if ("befindet".equals(speechTextAction)) {
+                speechText = speechTextCmd+"befindet sich im Wohnzimmer";
+            }
+            if ("personen".equals(speechTextAction)) {
+                speechText = speechTextCmd+"befindet sich im Wohnzimmer";
+            }
+            if ("beschäftigt".equals(speechTextAction)) {
+                speechText = "Ja, netflix und chill";
+            }
+            if ("hole".equals(speechTextAction)) {
+                speechText = "Ich versuche"+speechTextCmd+"zu holen";
             }
         }
 
-        speechText = speechTextCmd+speechTextAction;
+        if ("tobi".equals(speechTextCmd)) {
+            if ("befindet".equals(speechTextAction)) {
+                speechText = speechTextCmd+"befindet sich im Wohnzimmer";
+            }
+            if ("personen".equals(speechTextAction)) {
+                speechText = speechTextCmd+"befindet sich im Wohnzimmer";
+            }
+            if ("beschäftigt".equals(speechTextAction)) {
+                speechText = speechText = "Ja, netflix und chill";
+            }
+            if ("hole".equals(speechTextAction)) {
+                speechText = "Ich versuche"+speechTextCmd+"zu holen";
+            }
+        }
 
         SimpleCard card = new SimpleCard();
         card.setTitle("Pepper");
