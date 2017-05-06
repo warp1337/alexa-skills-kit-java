@@ -146,7 +146,7 @@ public class PepperSpeechlet implements Speechlet {
                 speechText = speechTextCmd+"befindet sich im Wohnzimmer";
             }
             if ("personen".equals(speechTextAction)) {
-                speechText = speechTextCmd+"befindet sich im Wohnzimmer";
+                speechText = speechTextCmd+"sieht vier personen";
             }
             if ("beschäftigt".equals(speechTextAction)) {
                 speechText = "Ja, netflix und chill";
@@ -161,7 +161,7 @@ public class PepperSpeechlet implements Speechlet {
                 speechText = speechTextCmd+"befindet sich im Wohnzimmer";
             }
             if ("personen".equals(speechTextAction)) {
-                speechText = speechTextCmd+"befindet sich im Wohnzimmer";
+                speechText = speechTextCmd+"sieht zehntausend personen und den weihnachtsmann";
             }
             if ("beschäftigt".equals(speechTextAction)) {
                 speechText = speechText = "Ja, netflix und chill";
