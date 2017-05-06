@@ -1,0 +1,4 @@
+GetNewPepperIntent wo ist {cmd}
+GetNewPepperIntent wie viele personen sieht {cmd}
+GetNewPepperIntent ist {cmd} beschäftigt
+GetNewPepperIntent hole {cmd} zu mir
