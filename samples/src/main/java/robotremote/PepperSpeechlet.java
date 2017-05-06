@@ -85,7 +85,7 @@ public class PepperSpeechlet implements Speechlet {
             }
 
             if (intent.getSlot("action") != null && intent.getSlot("action").getValue() != null) {
-                cmd = intent.getSlot("action").getValue().toLowerCase();
+                action = intent.getSlot("action").getValue().toLowerCase();
             } else {
                 action = "unbekannte aktion";
             }
@@ -132,29 +132,31 @@ public class PepperSpeechlet implements Speechlet {
      * @param day The desired day of the week
      * @param menue The desired menue, e.g., vital, vegetarian, etc.
      */
-    private SpeechletResponse getNewPepperResponse(String cmd, String action) {
+    private SpeechletResponse getNewPepperResponse(String action, String cmd) {
 
         // Actions: befindet, hole, personen, beschäftigt
         // CMD: befindet, hole, personen, beschäftigt
 
-        String speechText = "Es tut mir sehr leid, ich kann keinen Roboter erreichen";
+        String speechText = "";
         String speechTextCmd = cmd;
         String speechTextAction = action;
 
-        if ("pepper".equals(cmd)) {
-            switch (cmd) {
-            case "befindet": speechText = cmd+"befindet sich im Wohnzimmer";
+        if ("pepper".equals(speechTextCmd)) {
+            switch (speechTextCmd) {
+            case "befindet": speechText = speechTextCmd+"befindet sich im Wohnzimmer";
                      break;
             case "personen": speechText = "Es sind vier personen anwesend";
                      break;
             case "beschäftigt": speechText = "Ja, netflix und chill";
                      break;
-            case "hole": speechText = "Ich versuche"+cmd+"zu holen";
+            case "hole": speechText = "Ich versuche"+speechTextCmd+"zu holen";
                      break;
             default: speechText = "Es tut mir sehr leid, ich kann keinen Roboter erreichen";
                      break;
             }
         }
+
+        speechText = speechTextCmd+speechTextAction;
 
         SimpleCard card = new SimpleCard();
         card.setTitle("Pepper");
