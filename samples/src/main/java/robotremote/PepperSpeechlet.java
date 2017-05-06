@@ -75,17 +75,24 @@ public class PepperSpeechlet implements Speechlet {
         Intent intent = request.getIntent();
         String intentName = (intent != null) ? intent.getName() : null;
         String cmd = "";
+        String action = "";
 
         if ("GetNewPepperIntent".equals(intentName)) {
             if (intent.getSlot("cmd") != null && intent.getSlot("cmd").getValue() != null) {
                 cmd = intent.getSlot("cmd").getValue().toLowerCase();
             } else {
-                cmd = "unknown";
+                cmd = "unbekannter roboter";
+            }
+
+            if (intent.getSlot("action") != null && intent.getSlot("action").getValue() != null) {
+                cmd = intent.getSlot("action").getValue().toLowerCase();
+            } else {
+                action = "unbekannte aktion";
             }
         }
 
         if ("GetNewPepperIntent".equals(intentName)) {
-            return getNewPepperResponse(cmd);
+            return getNewPepperResponse(action, cmd);
 
         } else if ("AMAZON.HelpIntent".equals(intentName)) {
             return getHelpResponse();
@@ -125,9 +132,29 @@ public class PepperSpeechlet implements Speechlet {
      * @param day The desired day of the week
      * @param menue The desired menue, e.g., vital, vegetarian, etc.
      */
-    private SpeechletResponse getNewPepperResponse(String cmd) {
+    private SpeechletResponse getNewPepperResponse(String cmd, String action) {
 
-        String speechText = cmd;
+        // Actions: befindet, hole, personen, beschäftigt
+        // CMD: befindet, hole, personen, beschäftigt
+
+        String speechText = "Es tut mir sehr leid, ich kann keinen Roboter erreichen";
+        String speechTextCmd = cmd;
+        String speechTextAction = action;
+
+        if ("pepper".equals(cmd)) {
+            switch (cmd) {
+            case "befindet": speechText = cmd+"befindet sich im Wohnzimmer";
+                     break;
+            case "personen": speechText = "Es sind vier personen anwesend";
+                     break;
+            case "beschäftigt": speechText = "Ja, netflix und chill";
+                     break;
+            case "hole": speechText = "Ich versuche"+cmd+"zu holen";
+                     break;
+            default: speechText = "Es tut mir sehr leid, ich kann keinen Roboter erreichen";
+                     break;
+            }
+        }
 
         SimpleCard card = new SimpleCard();
         card.setTitle("Pepper");

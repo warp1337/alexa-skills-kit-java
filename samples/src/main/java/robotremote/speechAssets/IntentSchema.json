@@ -6,6 +6,10 @@
         {
           "name": "cmd",
           "type": "LIST_OF_CMD"
+        },
+        {
+          "name": "action",
+          "type": "LIST_OF_ACTIONS"
         }
       ]
     },
